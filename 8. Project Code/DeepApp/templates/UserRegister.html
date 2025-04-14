@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User Registration</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+</head>
+
+<body>
+    <div id="wrapper">
+        <center>
+            <br><br>
+            <h1 style="height: 50px; background-color: beige; padding-top: 20px;">User Registration</h1>
+            <br>
+            <font size="5" color="red">{{ data|safe }}</font>
+            <form method="post" action="{% url 'UserRegisterAction' %}">
+                {% csrf_token %}
+                <!-- <table>
+                    <tr><td>Name:</td><td><input type="text" name="name" required></td></tr>
+                    <tr><td>Email:</td><td><input type="email" name="email" required></td></tr>
+                    <tr><td>Password:</td><td><input type="password" name="password" required></td></tr>
+                    <tr><td></td><td><input type="submit" value="Register" style="background-color: #4CAF50; color: white; font-size: 10px; padding: 8px 10px; border: none; border-radius: 5px; cursor: pointer;"></td></tr>
+                </table> -->
+
+                <table
+                    style="margin: 6px; width: 50%; border-collapse: collapse; font-family: 'Times New Roman', Times, serif; background-color: #f9f9f9; padding-top: 20px; border-radius: 10px; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);">
+                    <tr>
+                        <td style="font-size: 18px; color: black; padding: 10px;">Name:</td>
+                        <td><input type="text" name="name" required
+                                style="font-size: 16px; width: 90%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 18px; color: black; padding: 10px;">Email:</td>
+                        <td><input type="email" name="email" required
+                                style="font-size: 16px; width: 90%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 18px; color: black; padding: 10px;">Password:</td>
+                        <td><input type="password" name="password" required
+                                style="font-size: 16px; width: 90%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="text-align: left; padding-top: 5px; padding-bottom: 15px;">
+                            <input type="submit" value="Register"
+                                style="background-color: #4CAF50; color: white; font-size: 16px; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">
+                        </td>
+                    </tr>
+                </table>
+
+
+            </form>
+            <br>
+            <a href="{% url 'UserLogin' %}">Already have an account? &nbsp; Login here</a>
+            <br><br>
+        </center>
+    </div>
+</body>
+
+</html>

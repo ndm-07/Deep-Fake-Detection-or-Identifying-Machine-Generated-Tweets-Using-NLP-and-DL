@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Users</title>
+    <style>
+        table { width: 50%; border-collapse: collapse; margin: 20px auto; }
+        th, td { padding: 10px; border: 1px solid black; text-align: center; }
+        th { background-color: #007bff; color: white; }
+        a { text-decoration: none; color: white; padding: 5px 10px; background-color: red; border-radius: 5px; }
+        .logout { background-color: #4CAF50; padding: 10px 15px; text-decoration: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">User Management</h2>
+    <hr>
+    <br><br>
+    <div style="text-align: center;">
+        <a href="{% url 'admin_logout' %}" class="logout">Logout</a>
+    </div>
+    <br>
+
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td><a href="{% url 'delete_user' user.id %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

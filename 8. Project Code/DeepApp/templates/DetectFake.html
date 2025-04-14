@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<title>Deep Fake Detection</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+	<script language="javascript">
+		function validate(formObj) {
+			if (formObj.t1.value.length == 0) {
+				alert("Please Enter Event Post");
+				formObj.t1.focus();
+				return false;
+			}
+
+			return true;
+		}
+	</script>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<div id="logo">
+				<center>
+					<font size="5" color="white">Deepfake Detection for Identifying Machine-generated Tweets Using NLP and DL</font>
+				</center>
+			</div>
+			<div id="slogan">
+
+			</div>
+		</div>
+		<div id="menu">
+			<ul>
+				<center>
+					<!-- <li class="first current_page_item"><a href="{% url 'LoadDataset' %}">
+							<font size="5" color="red">Load Dataset</font>
+						</a></li>
+
+					<li class="first current_page_item"><a href="{% url 'FastText' %}">
+							<font size="5" color="red">Fast Text Embedding</font>
+						</a></li>
+
+					<li class="first current_page_item"><a href="{% url 'TrainML' %}">
+							<font size="5" color="red">Run All Algorithms</font>
+						</a></li> -->
+
+					<li class="first current_page_item"><a href="{% url 'TrainML' %}">
+							<font size="5" color="red">Model Metrics</font>
+						</a></li>
+
+					<li class="first current_page_item"><a href="{% url 'DetectFake' %}">
+							<font size="5" color="red">Predict Deep Fake</font>
+						</a></li>
+
+					<li class="first current_page_item"><a href="{% url 'index' %}">
+							<font size="5" color="red">Logout</font>
+						</a></li>
+				</center>
+			</ul> <br class="clearfix" />
+		</div>
+
+		<!-- <div id="splash">
+			<img class="pic" src="{% static 'images/img05.jpg' %}" width="870" height="230" alt="" />
+		</div> -->
+		<center>
+			<form name="f1" method="post" action={% url 'DetectFakeAction' %} onsubmit="return validate(this);">
+				<br />{% csrf_token %}<br />
+				<h1><b>Tweet Testing Screen</b></h1>
+
+				<!-- <font size="" color="red">
+					<center>{{ data|safe }}</center>
+				</font> -->
+
+				<div style="text-align: center; font-size: 18px; color: red; font-weight: bold; margin-top: 10px;">
+					{{ data|safe }}
+				</div>
+				<br>
+
+
+				<!-- <table align="center" width="40">
+					<tr>
+						<td>
+							<font size="" color="black">Enter&nbsp;Tweets&nbsp;&nbsp;</b>
+						</td>
+						<td><input type="text" name="t1" style="font-family: Comic Sans MS" size="50" /></td>
+					</tr>
+
+
+					<tr>
+						<td></td>
+						<td><input type="submit" value="Submit">
+
+						</td>
+					</tr>
+				</table><br> -->
+
+				<table
+					style="margin: auto; width: 70%; border-collapse: collapse; font-family: 'Times New Roman', Times, serif;">
+					<tr>
+						<td style="width: 80%;">
+							<input type="text" name="t1" placeholder="   Enter Tweet"
+								style="font-family: 'Comic Sans MS', cursive; font-size: 16px; width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 20px;"
+								onfocus="this.placeholder=''" onblur="this.placeholder='   Enter Tweet'">
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 15%; text-align: left; padding-left: 10px; padding-top: 15px;">
+							<input type="submit" value="Submit"
+								style="background-color: #4CAF50; color: white; font-size: 16px; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">
+						</td>
+					</tr>
+				</table>
+
+				<br><br>
+
+	</div>
+
+	</div>
+	<br /><br />
+</body>
+
+</html>

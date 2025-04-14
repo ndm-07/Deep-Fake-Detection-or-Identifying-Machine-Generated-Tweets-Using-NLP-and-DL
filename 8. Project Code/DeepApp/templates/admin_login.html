@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Login</title>
+</head>
+
+<body style="font-family: 'Times New Roman', Times, serif; text-align: center; margin-top: 100px; background-color: #f4f4f4;">
+
+    <div style="display: inline-block; padding: 30px;border: 1px solid #ccc; border-radius: 10px; background: white; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);width: 350px;">
+        <h2 style="color: #333; margin-bottom: 30px;">Admin Login</h2>
+        
+        {% if error %}
+            <p style="color: red; font-weight: bold;">{{ error }}</p>
+        {% endif %}
+        
+        <form method="POST">
+            {% csrf_token %}
+            
+            <input type="text" name="name" placeholder="Admin Name" required
+                style="padding: 12px; margin: 10px 0; width: 85%; border: 1px solid #ccc; border-radius: 5px;font-family: 'Comic Sans MS', cursive; font-size: 16px; text-align: left; display: block;">
+            
+            <input type="password" name="password" placeholder="Password" required
+                style="padding: 12px; margin: 10px 0; width: 85%; border: 1px solid #ccc; border-radius: 5px;font-family: 'Comic Sans MS', cursive; font-size: 16px; text-align: left; display: block;">
+            
+                <button type="submit" 
+                style="background-color: #4CAF50; color: white; padding: 12px 20px; border: none; cursor: pointer; 
+                       border-radius: 5px; font-size: 16px; width: 50%; margin-top: 10px; transition: all 0.3s ease;"
+                onmouseover="this.style.backgroundColor='#388E3C'; this.style.transform='scale(1.05)'; this.style.boxShadow='3px 3px 10px rgba(0, 0, 0, 0.3)';"
+                onmouseout="this.style.backgroundColor='#4CAF50'; this.style.transform='scale(1)'; this.style.boxShadow='none';">
+                Login
+            </button>
+            
+            <br><br>
+            
+            <a href="{% url 'UserLogin' %}"
+                style="display: inline-block; background-color: #008CBA; color: white; padding: 12px 20px; border: none; 
+                       cursor: pointer; border-radius: 5px; text-decoration: none; font-size: 16px; width: 90%; text-align: center;
+                       transition: all 0.3s ease;"
+                onmouseover="this.style.backgroundColor='#005f79'; this.style.transform='scale(1.05)'; this.style.boxShadow='3px 3px 10px rgba(0, 0, 0, 0.3)';"
+                onmouseout="this.style.backgroundColor='#008CBA'; this.style.transform='scale(1)'; this.style.boxShadow='none';">
+                Back to Login Page
+            </a>
+            
+        </form>
+    </div>
+
+</body>
+
+</html>
